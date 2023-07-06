@@ -1,0 +1,57 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Upload and Convert Excel";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <form id="uploadForm" enctype="multipart/form-data" asp-page-handler="Upload">
+        <input type="file" name="file" id="fileInput" />
+        <button type="submit">Upload</button>
+    </form>
+</div>
+
+<div id="downloadLink" style="display: none;">
+    <h2>Converted File</h2>
+    <p>Download the converted file:</p>
+    <a href="#" id="downloadButton">Download</a>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#uploadForm').submit(function (e) {
+                e.preventDefault();
+
+                var formData = new FormData();
+                formData.append('file', $('#fileInput')[0].files[0]);
+
+                $.ajax({
+                    url: '/api/excel/ConvertToSql',
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function (data) {
+                    var downloadLink = $('#downloadButton');
+                    downloadLink.attr('href', '/api/excel/DownloadFile?filePath=' + encodeURIComponent(data.convertedFilePath));
+                    downloadLink.attr('download', 'Solicitação-(ARRECAD-1585)Teste.sql');
+                    $('#downloadLink').show();
+                },
+
+                    error: function (xhr, status, error) {
+                        alert('Ocorreu um erro ao converter o arquivo: ' + xhr.responseText);
+                    }
+                });
+            });
+
+            $('#downloadButton').click(function (e) {
+                e.preventDefault();
+                window.location.href = $(this).attr('href');
+            });
+        });
+    </script>
+}
