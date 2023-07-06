@@ -1,10 +1,11 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Upload and Convert Excel";
+    ViewData["Title"] = "Baixa Sapiens automatica";
 }
 
 <h1>@ViewData["Title"]</h1>
+</br>
 
 <div>
     <form id="uploadForm" enctype="multipart/form-data" asp-page-handler="Upload">
@@ -12,6 +13,7 @@
         <button type="submit">Upload</button>
     </form>
 </div>
+</br>
 
 <div id="downloadLink" style="display: none;">
     <h2>Converted File</h2>
@@ -19,9 +21,34 @@
     <a href="#" id="downloadButton">Download</a>
 </div>
 
+</br>
+</br>
+<div id="executeButton" style="display: none;">
+    <h2>Execute Script</h2>
+    <p>Execute the converted script:</p>
+    <button id="executeScriptButton">Execute</button>
+</div>
+
+
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        $('#executeScriptButton').click(function (e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/api/excel/ExecuteScript',
+                type: 'POST',
+                data: { scriptFilePath: $('#downloadButton').attr('href') },
+                success: function (data) {
+                    alert('Script executado com sucesso!\n\nResultados:\n\n' + data);
+                },
+                error: function (xhr, status, error) {
+                    alert('Ocorreu um erro ao executar o script: ' + xhr.responseText);
+                }
+            });
+        });
+
         $(document).ready(function () {
             $('#uploadForm').submit(function (e) {
                 e.preventDefault();

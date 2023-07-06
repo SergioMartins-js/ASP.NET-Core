@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using API_Baixa_Sapiens.ContextoDB;
 
 namespace API_Baixa_Sapiens
 {
@@ -18,6 +20,8 @@ namespace API_Baixa_Sapiens
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ContexoAPI>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddRazorPages();
         }
 
