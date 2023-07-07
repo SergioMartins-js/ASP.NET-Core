@@ -9,46 +9,38 @@
 
 <div>
     <form id="uploadForm" enctype="multipart/form-data" asp-page-handler="Upload">
+        </br></br></br>
         <input type="file" name="file" id="fileInput" />
-        <button type="submit">Upload</button>
+        </br></br></br>
+        <button type="submit">Carregar Planilha</button>
+        </br></br></br>
     </form>
 </div>
-</br>
+</br></br>
 
 <div id="downloadLink" style="display: none;">
-    <h2>Converted File</h2>
-    <p>Download the converted file:</p>
-    <a href="#" id="downloadButton">Download</a>
-</div>
+    <h2>Planilha convertida!</h2>
+    <p>Download do arquivo convertido:</p>
+    <button href="#" id="downloadButton">Download</button>
+
 
 </br>
-</br>
-<div id="executeButton" style="display: none;">
+
     <h2>Execute Script</h2>
-    <p>Execute the converted script:</p>
-    <button id="executeScriptButton">Execute</button>
+    <p>Execute a Baixa:</p>
+    <button id="executeScriptButton">Executar Baixa</button>
 </div>
 
+
+<form method="post" action="/api/excel/ExecuteScript">
+    <label for="scriptFilePath">Caminho do arquivo:</label>
+    <input type="text" name="scriptFilePath" id="scriptFilePath">
+    <button type="submit">Executar script</button>
+</form>
 
 @section Scripts {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $('#executeScriptButton').click(function (e) {
-            e.preventDefault();
-
-            $.ajax({
-                url: '/api/excel/ExecuteScript',
-                type: 'POST',
-                data: { scriptFilePath: $('#downloadButton').attr('href') },
-                success: function (data) {
-                    alert('Script executado com sucesso!\n\nResultados:\n\n' + data);
-                },
-                error: function (xhr, status, error) {
-                    alert('Ocorreu um erro ao executar o script: ' + xhr.responseText);
-                }
-            });
-        });
-
         $(document).ready(function () {
             $('#uploadForm').submit(function (e) {
                 e.preventDefault();
@@ -63,14 +55,33 @@
                     contentType: false,
                     processData: false,
                     success: function (data) {
-                    var downloadLink = $('#downloadButton');
-                    downloadLink.attr('href', '/api/excel/DownloadFile?filePath=' + encodeURIComponent(data.convertedFilePath));
-                    downloadLink.attr('download', 'Solicitação-(ARRECAD-1585)Teste.sql');
-                    $('#downloadLink').show();
-                },
-
+                        var downloadLink = $('#downloadButton');
+                        downloadLink.attr('href', '/api/excel/DownloadFile?filePath=' + encodeURIComponent(data.convertedFilePath));
+                        downloadLink.attr('download', 'Solicitação-(ARRECAD-1585)Teste.sql');
+                        $('#downloadLink').show();
+                        $('#executeScriptButton').data('scriptFilePath', data.convertedFilePath).show();
+                    },
                     error: function (xhr, status, error) {
                         alert('Ocorreu um erro ao converter o arquivo: ' + xhr.responseText);
+                    }
+                });
+            });
+
+            $('#executeScriptButton').click(function (e) {
+                e.preventDefault();
+
+                var scriptFilePath = $(this).data('scriptFilePath');
+
+                $.ajax({
+                    url: '/api/excel/ExecuteScript',
+                    type: 'POST',
+                    data: { scriptFilePath: scriptFilePath },
+                    success: function (result) {
+                        // Faça algo com o resultado retornado, se necessário
+                        alert('Script executado com sucesso!');
+                    },
+                    error: function (xhr, status, error) {
+                        alert('Ocorreu um erro ao executar o script: ' + xhr.responseText);
                     }
                 });
             });
@@ -81,4 +92,5 @@
             });
         });
     </script>
+
 }

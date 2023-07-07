@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using API_Baixa_Sapiens.ContextoDB;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
+using System.Text;
 
 namespace API_Baixa_Sapiens.Controllers
 {
@@ -57,8 +59,6 @@ namespace API_Baixa_Sapiens.Controllers
             return File(fileBytes, "application/octet-stream", Path.GetFileName(filePath));
         }
 
-
-
         private string ConvertExcelToSql(string filePath)
         {
             try
@@ -99,17 +99,38 @@ namespace API_Baixa_Sapiens.Controllers
                 throw new Exception($"Ocorreu um erro ao converter o arquivo: {ex.Message}");
             }
         }
-
         [HttpPost("ExecuteScript")]
-        public IActionResult ExecuteScript(string scriptFilePath, [FromServices] ContexoAPI dbContext)
+        private IActionResult ExecuteScript(string scriptFilePath)
         {
+            string connectionString = "Server=ANTTSQLDEV01;Database=BD_COBRANCA;Trusted_Connection=True;"; 
+
             try
             {
                 string script = System.IO.File.ReadAllText(scriptFilePath);
 
-                dbContext.Database.ExecuteSqlRaw(script);
+                string[] scriptStatements = script.Split(new[] { "GO" }, StringSplitOptions.RemoveEmptyEntries);
 
-                return Ok("Script executado com sucesso!");
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    StringBuilder resultBuilder = new StringBuilder();
+
+                    foreach (string statement in scriptStatements)
+                    {
+                        using (SqlCommand command = new SqlCommand(statement, connection))
+                        {
+                            command.ExecuteNonQuery();
+
+                            resultBuilder.AppendLine($"Statement executado: {statement}");
+                            resultBuilder.AppendLine();
+                        }
+                    }
+
+                    string result = resultBuilder.ToString();
+
+                    return Ok(result);
+                }
             }
             catch (Exception ex)
             {
