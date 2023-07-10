@@ -1,0 +1,96 @@
+.bold, .card-container .card-demands .row .subTitle, .card-container .card-demands .row .highlight {
+  font-family: "lato-bold", Sans-serif;
+}
+
+.semibold, .card-container .card-demands .card-desc {
+  font-family: "lato-semibold", Sans-serif;
+}
+
+main > * > * {
+  height: 100%;
+}
+main .main-container {
+  padding: 15px;
+}
+
+.card-container > div {
+  margin-bottom: 15px;
+}
+.card-container .card-demands {
+  height: 100%;
+  margin-bottom: 0;
+}
+.card-container .card-demands .card-desc {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 15px;
+}
+.card-container .card-demands .row {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+.card-container .card-demands .row .card-desc {
+  margin-top: 0;
+}
+.card-container .card-demands .row .highlight {
+  color: #0072BC;
+  font-size: 5.5rem;
+  line-height: 90px;
+  display: block;
+}
+.card-container .card-demands .row .highlight.light {
+  color: #3da3e8;
+}
+.card-container .card-demands .row .subTitle {
+  font-size: 2.1rem;
+  color: #838383;
+  display: block;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+.card-container .card-demands .row div img {
+  max-width: 120px;
+}
+@media (min-width: 1200px) {
+  .card-container .card-demands .row div {
+    border-right: 1px solid #E0E0E0;
+  }
+}
+.card-container .card-demands .row div:last-child {
+  border-right: 0 none;
+}
+@media (max-width: 1199px) {
+  .card-container .card-demands .row div:nth-child(2) {
+    margin-top: 10px;
+  }
+}
+.card-container .card-demands#card-finalDemands .row div {
+  border: 0 none;
+}
+.card-container .card-demands#card-finalDemands span, .card-container .card-demands#card-personalDemands span {
+  display: block;
+}
+@media (min-width: 1200px) {
+  .card-container .card-demands#card-finalDemands span, .card-container .card-demands#card-personalDemands span {
+    text-align: left;
+  }
+}
+.card-container .card-demands#card-finalDemands .info-content, .card-container .card-demands#card-personalDemands .info-content {
+  text-align: left;
+  margin-top: 15px;
+}
+.card-container .card-demands#card-finalDemands .info-content span, .card-container .card-demands#card-personalDemands .info-content span {
+  display: inline-block;
+}
+.card-container .card-demands#card-finalDemands .info-content .infoColor, .card-container .card-demands#card-personalDemands .info-content .infoColor {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+  float: left;
+  margin-top: 5px;
+}
+
+/*# sourceMappingURL=index.css.map */

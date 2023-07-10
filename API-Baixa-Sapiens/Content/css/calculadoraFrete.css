@@ -1,0 +1,38 @@
+﻿body{
+    font-size: 90% !important;
+}
+.margin-right-12{
+    margin-right: 12px !important;
+}
+@media (max-width: 575.98px) {
+    .toggle {
+        float: right;
+    }
+    .divCheckbox {
+        margin-top: 5px;
+        background-color: #f0f0f0cc;
+        border-radius: 4%;
+    }
+}
+@media (min-width: 575.99px){
+    .divCheckbox:first-child{
+        padding-top: 8px;
+    }
+}
+#corpoFiltroTipoCertificado {
+    display: flex;
+    padding-left: 0;
+}
+#divNumeroCertificado {
+    margin-bottom: 20px;
+}
+#divGlobalCaptcha {
+    -ms-align-items: end;
+    -o-align-items: end;
+    -webkit-align-items: end;
+    align-items: end;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

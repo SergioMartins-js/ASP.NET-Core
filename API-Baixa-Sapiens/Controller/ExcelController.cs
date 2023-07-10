@@ -28,7 +28,6 @@ namespace API_Baixa_Sapiens.Controllers
                 var fileName = Guid.NewGuid().ToString() + fileExtension;
                 var filePath = Path.Combine(Path.GetTempPath(), fileName);
 
-
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     file.CopyTo(stream);
@@ -56,8 +55,6 @@ namespace API_Baixa_Sapiens.Controllers
             var fileBytes = System.IO.File.ReadAllBytes(filePath);
             return File(fileBytes, "application/octet-stream", Path.GetFileName(filePath));
         }
-
-
 
         private string ConvertExcelToSql(string filePath)
         {
@@ -101,7 +98,7 @@ namespace API_Baixa_Sapiens.Controllers
         }
 
         [HttpPost("ExecuteScript")]
-        public IActionResult ExecuteScript(string scriptFilePath, [FromServices] ContexoAPI dbContext)
+        public IActionResult ExecuteScript(string scriptFilePath, [FromServices] ContextoAPI dbContext)
         {
             try
             {

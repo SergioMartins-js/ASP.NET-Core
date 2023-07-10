@@ -1,0 +1,149 @@
+﻿/*
+    CSS para customização de componentes especificos do layout do sistema
+    Usar esse arquivo para customizações especificas do sistema
+*/
+@import "config.less";
+@import "./less/datatable.custom.less";
+@import "./less/validation.custom.less";
+@import "./less/select2.custom.less";
+@import "./less/fileUpload.custom.less";
+
+
+.datePicker, .datePicker-data-limite {
+    text-align: right !important;
+}
+
+.input-group.date {
+    max-width: 150px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.alert-sem-registro {
+    font-weight: bold;
+    color: @cor_texto_1;
+    background-color: @cor_fundo_1;
+    border-color: @cor_fundo_2;
+}
+
+.pull-left-footer {
+    float: left;
+    margin-left: 230px;
+}
+
+.icon-action {
+    font-size: 1.3em !important;
+    padding-left: 4px;
+    padding-right: 4px;
+
+    &:hover {
+        color: @cor_fundo_3;
+        cursor: pointer;
+    }
+}
+
+.icon-action-inactive {
+    font-size: 1.3em !important;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: #ccc;
+    cursor: default;
+
+    :hover {
+        color: #ccc;
+        cursor: default;
+    }
+}
+
+.input-as-label {
+    border-width: 0;
+    background-color: #FFF !important;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.block-span {
+    display: block;
+}
+
+.round-number {
+    border-radius: 17px;
+    color: @cor_texto_2;
+    background-color: @cor_fundo_2;
+    display: inline-block;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.tab-verde > li > a {
+    background-color: #C4D8CC;
+    color: #000;
+    border-radius: 0px;
+}
+
+.tab-verde > li.active > a {
+    background-color: #FFF;
+    color: #000;
+}
+
+.progress-bar .ui-progressbar .ui-widget .ui-widget-content .ui-corner-all {
+    border: 1px solid #dddddd;
+    background: @cor_padrao;
+    color: #333333;
+}
+
+.panel-default {
+    border-color: @cor_padrao;
+
+    .panel-heading {
+        color: @cor_padrao;
+        background-color: @cor_fundo_1;
+        border-color: @cor_padrao;
+    }
+}
+
+.list-group-item-success {
+    background-color: @cor_fundo_1;
+    color: @cor_padrao;
+}
+
+.list-group-item-error {
+    background-color: @background_erro;
+    color: @cor_erro;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.cnpj, .cpf, .cpfcnpj, .numero-processo, .quantidade {
+    max-width: 170px;
+    display: block !important;
+}
+
+.th-center{
+    th{
+        text-align:center !important;
+    }
+}
+
+.label-radio {
+    padding-top: 4px;
+    margin-left: -5px;
+}
+.btn.has-error{
+    border-color:red !important;
+}

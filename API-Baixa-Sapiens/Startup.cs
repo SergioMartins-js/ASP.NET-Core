@@ -20,7 +20,7 @@ namespace API_Baixa_Sapiens
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ContexoAPI>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ContextoAPI>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddRazorPages();
         }

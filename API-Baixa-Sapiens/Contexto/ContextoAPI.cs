@@ -3,9 +3,9 @@
 
 namespace API_Baixa_Sapiens.ContextoDB
 {
-    public class ContexoAPI : DbContext
+    public class ContextoAPI : DbContext
     {
-        public ContexoAPI(DbContextOptions<ContexoAPI> options) : base(options)
+        public ContextoAPI(DbContextOptions<ContextoAPI> options) : base(options)
         {
         }
 

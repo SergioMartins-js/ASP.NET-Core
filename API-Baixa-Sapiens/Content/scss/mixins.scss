@@ -1,0 +1,81 @@
+// FROM XXL
+@mixin xxl-up {
+  @media (min-width: $xxl-width) {
+    @content;
+  }
+}
+
+// UNTIL XXL
+@mixin xxl-down {
+  
+  @media (max-width: $xxl-width - 1) {
+    @content;
+  }
+}
+
+// FROM XL
+@mixin xl-up {
+  @media (min-width: $xl-width) {
+    @content;
+  }
+}
+
+// UNTIL XL
+@mixin xl-down {
+  @media (max-width: $xl-width - 1) {
+    @content;
+  }
+}
+
+// FROM LG
+@mixin lg-up {
+  @media (min-width: $lg-width) {
+    @content;
+  }
+}
+
+// UNTIL LG
+@mixin lg-down {
+  @media (max-width: $lg-width - 1) {
+    @content;
+  }
+}
+
+// FROM MD
+@mixin md-up {
+  @media (min-width: $md-width) {
+    @content;
+  }
+}
+
+// UNTIL MD
+@mixin md-down {
+  @media (max-width: $md-width - 1) {
+    @content;
+  }
+}
+
+// FROM SM
+@mixin sm-up {
+  @media (min-width: $sm-width) {
+    @content;
+  }
+}
+
+// UNTIL SM
+@mixin sm-down {
+  @media (max-width: $sm-width - 1) {
+    @content;
+  }
+}
+
+// ADD FONT
+@mixin addFont($name, $file){
+  @font-face {
+      font-family: $name;
+      src: url('../webfonts/'+$file+'.woff2') format('woff2'),
+           url('../webfonts/'+$file+'.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+  }
+}

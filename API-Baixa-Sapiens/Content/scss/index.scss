@@ -1,0 +1,124 @@
+@import 'variables', 'mixins';
+
+// MAIN
+main{
+	>*{
+		>*{
+			height: 100%;
+		}
+	}
+
+	.main-container{
+		
+		padding: 15px;
+	}
+}
+
+
+.card-container{
+
+	>div{
+		margin-bottom: 15px;
+	}
+	.card-demands{
+		height: 100%;
+		margin-bottom: 0;
+
+		.card-desc {
+			@extend .semibold;
+			font-size: 1.2rem;
+			text-align: center;
+			margin-top: 15px;
+		}	
+		.row{
+			justify-content:center;
+			align-items:center;
+			text-align: center;
+			height: 100%;
+
+			.card-desc {
+				margin-top: 0;
+			}
+			
+			.highlight {
+				@extend .bold;
+				color: $bg-primary;
+				font-size: 5.5rem;
+				line-height: 90px;
+				display: block;
+				&.light{
+					color: $bg-primary-light;
+				}
+			}
+
+			.subTitle{
+				@extend .bold;
+				font-size: 2.1rem;
+				color: $text-default;
+				display: block;
+				line-height: 50px;
+				text-transform: uppercase;
+			}
+			
+			div{
+				img {
+					max-width: 120px;
+				}
+				@include xl-up {
+					border-right:1px solid $border-medium;
+				}
+
+				&:last-child {
+					border-right:0 none;
+				}
+				&:nth-child(2){
+					@include xl-down {
+						margin-top: 10px;
+					}
+				}
+			}
+
+			
+
+			
+		}
+
+		&#card-finalDemands{
+			.row {
+				div{
+					border: 0 none;
+				}
+			}
+		}
+		&#card-finalDemands,
+		&#card-personalDemands {
+			span {
+				display: block;
+			}
+			@include xl-up{
+				span{
+					text-align: left;
+				}
+			}
+
+			.info-content{
+				text-align: left;
+				margin-top: 15px;
+				span{
+					display: inline-block;
+				}
+				.infoColor {
+					width: 15px;
+					height: 15px;
+					border-radius:50%;
+					margin-right: 10px;
+					float: left;
+					margin-top: 5px;
+				}
+			}
+		}
+
+
+		
+	} 
+} 

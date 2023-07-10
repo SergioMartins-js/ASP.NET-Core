@@ -1,0 +1,110 @@
+/*HEADER*/
+header {
+    -moz-box-shadow: 0 0 6px 3px #bbb;
+    /*background: url('../../img/header.jpg'); */
+    -webkit-box-shadow: 0 0 6px 3px #bbb;
+    box-shadow: 0 0 6px 3px #bbb;
+}
+
+header div .btn-group .btn {
+    background: none;
+    border: none;
+    font-size: 1.0em;
+    padding: 0 0 0;
+}
+
+.header {
+    background-color: #1F426A;
+    background-size: 100%;
+    min-height: 100px;
+}
+
+.btn-default.active,
+.btn-default.focus,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover {
+    background-color: #e6e6e6 !important;
+    border-color: #adadad !important;
+    color: #333 !important;
+}
+
+.btn-group.open .dropdown-toggle:hover,
+.btn-group.open .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle:focus,
+.btn-group.open .dropdown-toggle {
+    background: transparent;
+    box-shadow: none;
+}
+
+.dropdown-menu {
+    background: #f9f8f8;
+    border-top: none;
+    font-size: 1.2em;
+    padding: 0;
+}
+
+.dropdown-menu > li > a {
+    border-bottom: 1px solid #f1f1f1;
+    color: #767676;
+    font-size: 1em;
+    padding: 10px;
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+    background-color: #fff;
+    color: #0a90cb;
+}
+
+.userContent span,
+.userContent a { color: #F8F8F8; }
+
+.perfilUsuario {
+    border-radius: 25px;
+    height: 45px;
+    margin-bottom: 10px;
+    margin-top: -12px;
+    width: 45px;
+}
+
+.nomeUsuario {
+    float: left;
+    max-height: 36px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.icon-desktop,
+.icon-wheelchair,
+.branco {
+    color: #013B1C;
+    font-size: 1.0em;
+}
+
+@media (max-width: 768px) {
+    .perfilUsuario { margin-top: 0px; }
+
+    .nomeUsuario { margin-top: 15px; }
+
+    .header {
+        min-height: 100px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1175px) {
+    .data { padding-left: 0px; }
+}
+
+@media (max-width: 768px) {
+    .nav-md .container.body .col-md-3.left_col {
+        margin-bottom: 20px;
+        position: relative;
+        width: 100%;
+    }
+
+    .nav-md .container.body .col-md-3.left_col .menu_section { margin-bottom: 0; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .nav-md .container.body .right_col { padding-left: 250px !important }
+}
