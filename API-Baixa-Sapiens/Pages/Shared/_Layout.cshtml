@@ -3,25 +3,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Baixa Sapiens</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/API_Baixa_Sapiens.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/baixastyle.css" asp-append-version="true" />
+
     @RenderSection("styles", false)
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Baixa Sapiens</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-            </div>
-        </nav>
+        <div class="tituloEstilizado">
+            <h1>Baixa Sapiens</h1>            
+        </div>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -30,11 +25,7 @@
 
     <footer>
         <div id="footer-container" class="container-fluid">
-            <div class="row">
-                <div class="col-lg-auto ml-auto">
-                    <img src="~/Content/img/logo-antt.png" alt="logo ANTT">
-                </div>
-            </div>
+            <img src="~/logo-antt.png" />
         </div>
     </footer>
 

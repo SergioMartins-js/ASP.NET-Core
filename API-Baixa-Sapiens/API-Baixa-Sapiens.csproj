@@ -20,4 +20,9 @@
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\baixaStyle.css" />
+    <None Include="wwwroot\logo-antt.png" />
+  </ItemGroup>
+
 </Project>

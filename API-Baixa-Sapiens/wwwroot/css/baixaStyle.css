@@ -1,0 +1,36 @@
+﻿body {    
+    background-color: whitesmoke;
+}
+
+.tituloEstilizado {
+    text-decoration: underline;
+    display: inline;
+    text-align: center;
+    margin-bottom: 3%;
+}
+
+.formUpload {
+    padding: 1% 10% 10% 10%;
+    text-align: center;
+}
+
+#downloadLink {
+    padding: 1% 10% 10% 10%;
+    text-align: center;
+}
+
+.formExecutarScript {
+    padding: 1% 10% 10% 10%;
+    text-align: center;
+}
+
+.imagemANTT {
+    width: 10%;
+    height: 10%;
+    position: initial;
+    text-align: center;
+}
+
+#footer-container{
+    text-align: center;
+}
