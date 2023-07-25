@@ -1,2 +1,2 @@
 # ASP.NET-Core
-API antt.
+API antt
